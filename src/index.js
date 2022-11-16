@@ -6,7 +6,8 @@ const APIkey = "5b21ceff975376ccc4e6dd18d0f40388"
 const form = document.querySelector("form");
 
 
-// TODO: turn city name into coordinates 
+
+// TODO: get current weather from city coords
 
 // Convert city name into coordinates so we can use weather API call
 form.addEventListener("submit", async (event) => {
@@ -15,5 +16,9 @@ form.addEventListener("submit", async (event) => {
     const cityName = event.target.city.value;
 
     let coords = await apiServices.getCoords(cityName);
-    console.log(coords);
+
+
+    let weather = await apiServices.getWeather(coords);
+    console.log(weather)
+  
 });
