@@ -21,10 +21,13 @@ form.addEventListener("submit", async (event) => {
 
     let currentWeather = await apiServices.getWeather(coords);
 
-    console.log(currentWeather.main);
+    console.log(currentWeather);
 
-    let tempEl = document.querySelector("#temp");
-    tempEl.innerText = `Temp: ${currentWeather.main.temp}`;
+    const tempEl = document.querySelector("#temp");
+    tempEl.innerText = `Temp: ${currentWeather.main.temp}\u00B0`;
+
+    const humEl = document.querySelector("#hum");
+    humEl.innerText = `Hum: ${currentWeather.main.humidity}%`;
 
 });
 
