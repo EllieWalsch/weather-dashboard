@@ -13,6 +13,7 @@ const currentCity = document.querySelector("#cityName")
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // Display city name
     const cityName = event.target.city.value;
     currentCity.innerText = cityName;
 
@@ -21,8 +22,7 @@ form.addEventListener("submit", async (event) => {
 
     let currentWeather = await apiServices.getWeather(coords);
 
-    console.log(currentWeather);
-
+    // Display current conditions
     const tempEl = document.querySelector("#temp");
     tempEl.innerText = `Temp: ${currentWeather.main.temp}\u00B0`;
 
@@ -31,6 +31,12 @@ form.addEventListener("submit", async (event) => {
 
     const windEl = document.querySelector("#wind");
     windEl.innerText = `Wind: ${currentWeather.wind.speed} mph`;
+
+    const img = document.createElement("img");
+    let iconCode = currentWeather.weather[0].icon;
+    img.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const iconEl = document.querySelector("#icon");
+    iconEl.appendChild(img)
 
 });
 
