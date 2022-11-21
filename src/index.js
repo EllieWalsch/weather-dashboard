@@ -29,6 +29,9 @@ form.addEventListener("submit", async (event) => {
     const humEl = document.querySelector("#hum");
     humEl.innerText = `Hum: ${currentWeather.main.humidity}%`;
 
+    const windEl = document.querySelector("#wind");
+    windEl.innerText = `Wind: ${currentWeather.wind.speed} mph`;
+
 });
 
 
