@@ -27,7 +27,6 @@ form.addEventListener("submit", async (event) => {
 
     let coords = await apiServices.getCoords(cityName);
 
-
     let currentWeather = await apiServices.getWeather(coords);
 
     // Display current conditions
@@ -45,6 +44,9 @@ form.addEventListener("submit", async (event) => {
     img.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     const iconEl = document.querySelector("#icon");
     iconEl.appendChild(img)
+
+    let forecast = await apiServices.getForecast(coords);
+    console.log(forecast);
 
 });
 

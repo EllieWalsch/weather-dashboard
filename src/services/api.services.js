@@ -18,4 +18,9 @@ export default {
 
         return response.json();
     },
+    async getForecast(coords) {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${coords[0].lat}&lon=${coords[0].lon}&appid=${APIkey}&units=imperial`)
+    
+        return response.json();
+    }
 };
