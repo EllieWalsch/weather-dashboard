@@ -8,7 +8,6 @@ export default {
         const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q="${cityName}"&limit=1&appid=${APIkey}`)
 
     
-        // return response.json();
         let coords = await response.json();
         return coords;
 
