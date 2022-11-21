@@ -17,6 +17,14 @@ form.addEventListener("submit", async (event) => {
     const cityName = event.target.city.value;
     currentCity.innerText = cityName;
 
+    // Display date
+    const dateEl = document.querySelector("#date");
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    dateEl.innerText = `${month}/${day}/${year}`;
+
     let coords = await apiServices.getCoords(cityName);
 
 
