@@ -5,7 +5,7 @@ const APIkey = "5b21ceff975376ccc4e6dd18d0f40388"
 
 const form = document.querySelector("form");
 
-
+const currentCity = document.querySelector("#cityName")
 
 // TODO: get current weather from city coords
 
@@ -14,11 +14,18 @@ form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const cityName = event.target.city.value;
+    currentCity.innerText = cityName;
 
     let coords = await apiServices.getCoords(cityName);
 
 
-    let weather = await apiServices.getWeather(coords);
-    console.log(weather)
-  
+    let currentWeather = await apiServices.getWeather(coords);
+
+    console.log(currentWeather.main);
+
+    let tempEl = document.querySelector("#temp");
+    tempEl.innerText = `Temp: ${currentWeather.main.temp}`;
+
 });
+
+
