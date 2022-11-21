@@ -7,7 +7,6 @@ const form = document.querySelector("form");
 
 const currentCity = document.querySelector("#cityName")
 
-// TODO: get current weather from city coords
 
 // Convert city name into coordinates so we can use weather API call
 form.addEventListener("submit", async (event) => {
@@ -42,6 +41,9 @@ form.addEventListener("submit", async (event) => {
     let forecast = await apiServices.getForecast(coords);
     console.log(forecast);
 
+    // TODO: display forecast
+    // TODO: save search history
+
 });
 
 function initDate() {
@@ -52,5 +54,7 @@ function initDate() {
     let year = date.getFullYear();
     dateEl.innerText = `${month}/${day}/${year}`;
 };
+
+
 
 
